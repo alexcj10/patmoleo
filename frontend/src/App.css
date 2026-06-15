@@ -607,3 +607,13 @@ body {
   height: 14px;
 }
 
+/* ═══════ Mobile Responsiveness ═══════ */
+@media (max-width: 500px) {
+  .btn-text {
+    display: none;
+  }
+  .text-btn, .example-btn {
+    padding: 0 8px;
+    gap: 0;
+  }
+}

@@ -179,7 +179,7 @@ export default function App() {
         <button className="topbar-logo" onClick={reset}><img src="/logo.svg" alt="Home"/></button>
         <div className="topbar-actions">
           <div className="history-anchor" ref={histRef}>
-            <button className="text-btn" onClick={() => setHistOpen(v => !v)}><Clock/> History</button>
+            <button className="text-btn" onClick={() => setHistOpen(v => !v)}><Clock/> <span className="btn-text">History</span></button>
             {histOpen && (
               <div className="history-panel">
                 {history.length === 0
@@ -194,7 +194,7 @@ export default function App() {
               </div>
             )}
           </div>
-          {view === 'results' && <button className="text-btn" onClick={reset}><Plus/> New</button>}
+          {view === 'results' && <button className="text-btn" onClick={reset}><Plus/> <span className="btn-text">New</span></button>}
           <a className="icon-btn" href={GITHUB} target="_blank" rel="noopener noreferrer" title="GitHub"><GH/></a>
         </div>
       </nav>
@@ -208,7 +208,7 @@ export default function App() {
                 <div className="search-toolbar">
                   <button className="example-btn" onClick={fillRandom}>
                     <Sparkles/>
-                    Surprise me
+                    <span className="btn-text">Surprise me</span>
                   </button>
                   <button className="search-go" onClick={() => run()} disabled={loading || !text.trim()}>
                     {loading ? <div className="dot-spin"/> : <Arrow/>}
