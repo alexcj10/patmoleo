@@ -199,54 +199,56 @@ export default function App() {
         </div>
       </nav>
 
-      {view === 'home' ? (
-        <>
-          <div className="hero">
-            <div className="search-box">
-              <textarea ref={ref} className="search-field" value={text} onChange={e => setText(e.target.value)} onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); run() } }} placeholder="Paste any text to extract entities…" rows={1} />
-              <div className="search-toolbar">
-                <button className="example-btn" onClick={fillRandom}>
-                  <Sparkles/>
-                  Surprise me
-                </button>
-                <button className="search-go" onClick={() => run()} disabled={loading || !text.trim()}>
-                  {loading ? <div className="dot-spin"/> : <Arrow/>}
-                </button>
-              </div>
-            </div>
-            {error && <div className="error" style={{maxWidth:520,width:'100%'}}>{error}</div>}
-          </div>
-          <footer className="home-footer">
-            Named Entity Recognition · DeBERTa + LoRA
-          </footer>
-        </>
-      ) : (
-        <div className="results">
-          {error && <div className="error">{error}</div>}
-          <div className="output">{highlighted()}</div>
-
-          {entities.length > 0 && (
-            <div className="summary">
-              {Object.entries(groups).map(([code, ents]) => (
-                <div key={code} className="summary-card">
-                  <div className="summary-card-header">
-                    <span className={`cat-icon ${code}`}><CategoryIcon code={code} /></span>
-                    <span>{NAMES[code] || code}</span>
-                  </div>
-                  <div className="summary-card-body">
-                    {ents.map((e, j) => (
-                      <div key={j} className="summary-row">
-                        <span className="summary-row-text" title={e.word}>{e.word}</span>
-                        <span className={`summary-row-score ${code}`}>{(e.score*100).toFixed(0)}%</span>
-                      </div>
-                    ))}
-                  </div>
+      <main className="main-content">
+        {view === 'home' ? (
+          <>
+            <div className="hero">
+              <div className="search-box">
+                <textarea ref={ref} className="search-field" value={text} onChange={e => setText(e.target.value)} onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); run() } }} placeholder="Paste any text to extract entities…" rows={1} />
+                <div className="search-toolbar">
+                  <button className="example-btn" onClick={fillRandom}>
+                    <Sparkles/>
+                    Surprise me
+                  </button>
+                  <button className="search-go" onClick={() => run()} disabled={loading || !text.trim()}>
+                    {loading ? <div className="dot-spin"/> : <Arrow/>}
+                  </button>
                 </div>
-              ))}
+              </div>
+              {error && <div className="error" style={{maxWidth:520,width:'100%'}}>{error}</div>}
             </div>
-          )}
-        </div>
-      )}
+            <footer className="home-footer">
+              Named Entity Recognition · DeBERTa + LoRA
+            </footer>
+          </>
+        ) : (
+          <div className="results">
+            {error && <div className="error">{error}</div>}
+            <div className="output">{highlighted()}</div>
+
+            {entities.length > 0 && (
+              <div className="summary">
+                {Object.entries(groups).map(([code, ents]) => (
+                  <div key={code} className="summary-card">
+                    <div className="summary-card-header">
+                      <span className={`cat-icon ${code}`}><CategoryIcon code={code} /></span>
+                      <span>{NAMES[code] || code}</span>
+                    </div>
+                    <div className="summary-card-body">
+                      {ents.map((e, j) => (
+                        <div key={j} className="summary-row">
+                          <span className="summary-row-text" title={e.word}>{e.word}</span>
+                          <span className={`summary-row-score ${code}`}>{(e.score*100).toFixed(0)}%</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+      </main>
     </div>
   )
 }
