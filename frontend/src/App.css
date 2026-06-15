@@ -616,4 +616,20 @@ body {
     padding: 0 8px;
     gap: 0;
   }
+  .topbar {
+    padding: 0 0.5rem;
+  }
+  .topbar-logo img {
+    height: 20px;
+  }
+  .icon-btn, .text-btn {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    justify-content: center;
+  }
+  .icon-btn svg, .text-btn svg {
+    width: 14px;
+    height: 14px;
+  }
 }
