@@ -104,6 +104,9 @@ export default function App() {
   // ── HOME ──
   if (view === 'home') return (
     <div className="app">
+      <div className="top-right-actions">
+        <a className="icon-btn" href={GITHUB} target="_blank" rel="noopener noreferrer" title="GitHub"><GH/></a>
+      </div>
       <div className="hero">
         <div className="hero-logo"><img src="/logo.svg" alt="Patmoleo" /></div>
         <div className="hero-sub">Named Entity Recognition · DeBERTa + LoRA</div>
