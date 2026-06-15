@@ -104,12 +104,13 @@ export default function App() {
   // ── HOME ──
   if (view === 'home') return (
     <div className="app">
+      <div className="top-left-logo">
+        <img src="/logo.svg" alt="Patmoleo" />
+      </div>
       <div className="top-right-actions">
         <a className="icon-btn" href={GITHUB} target="_blank" rel="noopener noreferrer" title="GitHub"><GH/></a>
       </div>
       <div className="hero">
-        <div className="hero-logo"><img src="/logo.svg" alt="Patmoleo" /></div>
-        <div className="hero-sub">Named Entity Recognition · DeBERTa + LoRA</div>
         <div className="search-box">
           <textarea ref={ref} className="search-field" value={text} onChange={e => setText(e.target.value)} onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); run() } }} placeholder="Paste any text to extract entities…" rows={1} />
           <button className="search-go" onClick={() => run()} disabled={loading || !text.trim()}>
@@ -118,6 +119,9 @@ export default function App() {
         </div>
         {error && <div className="error" style={{maxWidth:520,width:'100%'}}>{error}</div>}
       </div>
+      <footer className="home-footer">
+        Named Entity Recognition · DeBERTa + LoRA
+      </footer>
     </div>
   )
 

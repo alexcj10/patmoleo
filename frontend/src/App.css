@@ -487,3 +487,25 @@ body {
   gap: 10px;
   z-index: 100;
 }
+
+.top-left-logo {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.top-left-logo img {
+  height: 26px;
+}
+
+.home-footer {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  font-weight: 400;
+  z-index: 10;
+}
