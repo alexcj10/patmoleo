@@ -19,15 +19,15 @@
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
   --shadow: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
 
-  /* Entity palette — each one unique, soft, readable on dark */
-  --per-bg: #2e1065; --per-text: #c4b5fd; --per-border: #5b21b6;
-  --geo-bg: #064e3b; --geo-text: #6ee7b7; --geo-border: #047857;
-  --org-bg: #1e3a8a; --org-text: #93c5fd; --org-border: #1d4ed8;
-  --tim-bg: #78350f; --tim-text: #fcd34d; --tim-border: #b45309;
-  --gpe-bg: #831843; --gpe-text: #fbcfe8; --gpe-border: #be185d;
-  --art-bg: #7c2d12; --art-text: #fdba74; --art-border: #c2410c;
-  --eve-bg: #7f1d1d; --eve-text: #fca5a5; --eve-border: #b91c1c;
-  --nat-bg: #164e63; --nat-text: #67e8f9; --nat-border: #0e7490;
+  /* Entity palette — Vibrant, distinct, non-repeating */
+  --per-bg: rgba(59, 130, 246, 0.15); --per-text: #60a5fa; --per-border: #3b82f6;
+  --geo-bg: rgba(16, 185, 129, 0.15); --geo-text: #34d399; --geo-border: #10b981;
+  --org-bg: rgba(139, 92, 246, 0.15); --org-text: #a78bfa; --org-border: #8b5cf6;
+  --tim-bg: rgba(245, 158, 11, 0.15); --tim-text: #fbbf24; --tim-border: #f59e0b;
+  --gpe-bg: rgba(236, 72, 153, 0.15); --gpe-text: #f472b6; --gpe-border: #ec4899;
+  --art-bg: rgba(234, 179, 8, 0.15);  --art-text: #facc15; --art-border: #eab308;
+  --eve-bg: rgba(239, 68, 68, 0.15);  --eve-text: #f87171; --eve-border: #ef4444;
+  --nat-bg: rgba(6, 182, 212, 0.15);  --nat-text: #22d3ee; --nat-border: #06b6d4;
 }
 
 body {
@@ -214,15 +214,7 @@ body {
   gap: 1.5rem;
 }
 
-.hero-logo img {
-  height: 44px;
-}
 
-.hero-sub {
-  font-size: 0.82rem;
-  color: var(--text-tertiary);
-  font-weight: 400;
-}
 
 /* ═══════ Search Input ═══════ */
 .search-box {
@@ -523,28 +515,7 @@ body {
 ::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #64748b; }
 
-/* ═══════ Floating/Top Right Actions ═══════ */
-.top-right-actions {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  display: flex;
-  gap: 10px;
-  z-index: 100;
-}
 
-.top-left-logo {
-  position: absolute;
-  top: 1.25rem;
-  left: 1.25rem;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-}
-
-.top-left-logo img {
-  height: 26px;
-}
 
 .home-footer {
   padding: 1.5rem;
