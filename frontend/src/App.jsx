@@ -27,6 +27,7 @@ export default function App() {
   const [error, setError] = useState(null)
   const [history, setHistory] = useState(load)
   const [histOpen, setHistOpen] = useState(false)
+  const [showExamplePopup, setShowExamplePopup] = useState(false)
   const ref = useRef(null)
   const histRef = useRef(null)
 
@@ -115,15 +116,52 @@ export default function App() {
       <div className="hero">
         <div className="search-box">
           <textarea ref={ref} className="search-field" value={text} onChange={e => setText(e.target.value)} onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); run() } }} placeholder="Paste any text to extract entities…" rows={1} />
-          <button className="search-go" onClick={() => run()} disabled={loading || !text.trim()}>
-            {loading ? <div className="dot-spin"/> : <Arrow/>}
-          </button>
+          <div className="search-toolbar">
+            <button className="example-btn" onClick={() => setShowExamplePopup(true)}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              See how it works
+            </button>
+            <button className="search-go" onClick={() => run()} disabled={loading || !text.trim()}>
+              {loading ? <div className="dot-spin"/> : <Arrow/>}
+            </button>
+          </div>
         </div>
         {error && <div className="error" style={{maxWidth:520,width:'100%'}}>{error}</div>}
       </div>
       <footer className="home-footer">
         Named Entity Recognition · DeBERTa + LoRA
       </footer>
+
+      {showExamplePopup && (
+        <div className="modal-backdrop" onClick={() => setShowExamplePopup(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>How it works</h3>
+              <button className="modal-close" onClick={() => setShowExamplePopup(false)}>×</button>
+            </div>
+            <div className="modal-body">
+              <p className="modal-desc">
+                Patmoleo uses a fine-tuned DeBERTa model with LoRA to extract named entities (such as People, Locations, Organizations, and Times) from any text you provide.
+              </p>
+              <div className="modal-example-section">
+                <div className="modal-subtitle">Sample Text:</div>
+                <div className="modal-example-text">
+                  "US and Iran agree to a historic peace framework in Geneva. President Trump is scheduled to meet European leaders at the United Nations headquarters in New York next Tuesday to discuss the treaty."
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="modal-btn secondary" onClick={() => setShowExamplePopup(false)}>Close</button>
+              <button className="modal-btn primary" onClick={() => {
+                setText("US and Iran agree to a historic peace framework in Geneva. President Trump is scheduled to meet European leaders at the United Nations headquarters in New York next Tuesday to discuss the treaty.");
+                setShowExamplePopup(false);
+              }}>
+                Use this example
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 
