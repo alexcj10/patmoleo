@@ -164,24 +164,22 @@ export default function App() {
       <nav className="topbar">
         <button className="topbar-logo" onClick={reset}><img src="/logo.svg" alt="Home"/></button>
         <div className="topbar-actions">
-          {view === 'results' && (
-            <div className="history-anchor" ref={histRef}>
-              <button className="text-btn" onClick={() => setHistOpen(v => !v)}><Clock/> History</button>
-              {histOpen && (
-                <div className="history-panel">
-                  {history.length === 0
-                    ? <div className="history-empty">No saved queries yet</div>
-                    : history.map((h, i) => (
-                      <button key={i} className="history-entry" onClick={() => pick(h)}>
-                        <div>{h.text.length > 70 ? h.text.slice(0, 67) + '…' : h.text}</div>
-                        <div className="history-meta">{h.entities.length} entities</div>
-                      </button>
-                    ))
-                  }
-                </div>
-              )}
-            </div>
-          )}
+          <div className="history-anchor" ref={histRef}>
+            <button className="text-btn" onClick={() => setHistOpen(v => !v)}><Clock/> History</button>
+            {histOpen && (
+              <div className="history-panel">
+                {history.length === 0
+                  ? <div className="history-empty">No saved queries yet</div>
+                  : history.map((h, i) => (
+                    <button key={i} className="history-entry" onClick={() => pick(h)}>
+                      <div>{h.text.length > 70 ? h.text.slice(0, 67) + '…' : h.text}</div>
+                      <div className="history-meta">{h.entities.length} entities</div>
+                    </button>
+                  ))
+                }
+              </div>
+            )}
+          </div>
           {view === 'results' && <button className="text-btn" onClick={reset}><Plus/> New</button>}
           <a className="icon-btn" href={GITHUB} target="_blank" rel="noopener noreferrer" title="GitHub"><GH/></a>
         </div>
