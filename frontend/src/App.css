@@ -442,11 +442,9 @@ body {
   padding: 12px 16px;
   border-bottom: 1px solid var(--border-light);
   background: rgba(255, 255, 255, 0.02);
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 500;
   color: var(--text-secondary);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 .summary-card-body {
@@ -497,21 +495,24 @@ body {
 .summary-row-score.eve { background: var(--eve-bg); color: var(--eve-text); }
 .summary-row-score.nat { background: var(--nat-bg); color: var(--nat-text); }
 
-.legend-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+.cat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
 }
+.cat-icon svg { width: 100%; height: 100%; }
 
-.legend-dot.per { background: var(--per-text); }
-.legend-dot.geo { background: var(--geo-text); }
-.legend-dot.org { background: var(--org-text); }
-.legend-dot.tim { background: var(--tim-text); }
-.legend-dot.gpe { background: var(--gpe-text); }
-.legend-dot.art { background: var(--art-text); }
-.legend-dot.eve { background: var(--eve-text); }
-.legend-dot.nat { background: var(--nat-text); }
+.cat-icon.per { color: var(--per-text); }
+.cat-icon.geo { color: var(--geo-text); }
+.cat-icon.org { color: var(--org-text); }
+.cat-icon.tim { color: var(--tim-text); }
+.cat-icon.gpe { color: var(--gpe-text); }
+.cat-icon.art { color: var(--art-text); }
+.cat-icon.eve { color: var(--eve-text); }
+.cat-icon.nat { color: var(--nat-text); }
 
 /* ═══════ Error ═══════ */
 .error {
