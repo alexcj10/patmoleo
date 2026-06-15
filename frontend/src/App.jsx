@@ -106,15 +106,39 @@ export default function App() {
     const parts = []
     let c = 0
     sorted.forEach((e, i) => {
-      if (e.start < c) return
-      if (e.start > c) parts.push(<span key={`t${i}`}>{analyzed.slice(c, e.start)}</span>)
+      let actualStart = e.start
+      let actualEnd = e.end
+
+      if (actualStart < c) actualStart = c
+      if (actualStart >= actualEnd) return
+
+      let entText = analyzed.slice(actualStart, actualEnd)
+      
+      const leadingMatch = entText.match(/^\s+/)
+      if (leadingMatch) {
+        actualStart += leadingMatch[0].length
+        entText = entText.slice(leadingMatch[0].length)
+      }
+
+      const trailingMatch = entText.match(/\s+$/)
+      if (trailingMatch) {
+        actualEnd -= trailingMatch[0].length
+        entText = entText.slice(0, entText.length - trailingMatch[0].length)
+      }
+
+      if (entText.length === 0) return
+
+      if (actualStart > c) {
+        parts.push(<span key={`t${i}`}>{analyzed.slice(c, actualStart)}</span>)
+      }
+
       const code = e.entity_group.toLowerCase()
       parts.push(
         <span key={`e${i}`} className={`mark ${code}`} title={`${NAMES[code] || e.entity_group} · ${(e.score*100).toFixed(1)}%`}>
-          {analyzed.slice(e.start, e.end)}<span className="mark-type">{NAMES[code] || e.entity_group}</span>
+          {entText}<span className="mark-type">{NAMES[code] || e.entity_group}</span>
         </span>
       )
-      c = e.end
+      c = actualEnd
     })
     if (c < analyzed.length) parts.push(<span key="z">{analyzed.slice(c)}</span>)
     return parts
