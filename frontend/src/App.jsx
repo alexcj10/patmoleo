@@ -15,6 +15,18 @@ const NAMES = {
 const GITHUB = 'https://github.com/alexcj10/patmoleo'
 const KEY = 'patmoleo_history'
 
+const EXAMPLES = [
+  "US and Iran agree to a historic peace framework in Geneva. President Trump is scheduled to meet European leaders at the United Nations headquarters in New York next Tuesday to discuss the treaty.",
+  "Apple Inc. announced yesterday from their Cupertino headquarters that Tim Cook will be stepping down as CEO next year.",
+  "The World Health Organization (WHO) reported a significant decrease in Malaria cases across Sub-Saharan Africa in 2023.",
+  "Elon Musk's SpaceX successfully launched the Starship rocket from Boca Chica, Texas on Thursday morning.",
+  "Mount Everest, located in the Himalayas on the border of Nepal and China, is the highest mountain above sea level.",
+  "In 1969, NASA astronauts Neil Armstrong and Buzz Aldrin became the first humans to walk on the Moon during the Apollo 11 mission.",
+  "Amazon reported a Q3 revenue of $143.1 billion, exceeding Wall Street estimates, driven largely by AWS growth.",
+  "The Louvre Museum in Paris is home to thousands of works of art, including the Mona Lisa by Leonardo da Vinci.",
+  "Google's parent company, Alphabet, is heavily investing in artificial intelligence research at DeepMind in London."
+]
+
 const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || [] } catch { return [] } }
 const save = (h) => localStorage.setItem(KEY, JSON.stringify(h))
 
@@ -27,9 +39,14 @@ export default function App() {
   const [error, setError] = useState(null)
   const [history, setHistory] = useState(load)
   const [histOpen, setHistOpen] = useState(false)
-  const [showExamplePopup, setShowExamplePopup] = useState(false)
   const ref = useRef(null)
   const histRef = useRef(null)
+
+  const fillRandom = () => {
+    const random = EXAMPLES[Math.floor(Math.random() * EXAMPLES.length)]
+    setText(random)
+    setTimeout(() => ref.current?.focus(), 50)
+  }
 
   useEffect(() => {
     const el = ref.current
@@ -99,6 +116,7 @@ export default function App() {
   }
 
   /* ── Icons (inline SVG, no deps) ── */
+  const Sparkles = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
   const Arrow = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
   const Plus = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
   const Clock = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -117,9 +135,9 @@ export default function App() {
         <div className="search-box">
           <textarea ref={ref} className="search-field" value={text} onChange={e => setText(e.target.value)} onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); run() } }} placeholder="Paste any text to extract entities…" rows={1} />
           <div className="search-toolbar">
-            <button className="example-btn" onClick={() => setShowExamplePopup(true)}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-              See how it works
+            <button className="example-btn" onClick={fillRandom}>
+              <Sparkles/>
+              Surprise me
             </button>
             <button className="search-go" onClick={() => run()} disabled={loading || !text.trim()}>
               {loading ? <div className="dot-spin"/> : <Arrow/>}
@@ -131,37 +149,6 @@ export default function App() {
       <footer className="home-footer">
         Named Entity Recognition · DeBERTa + LoRA
       </footer>
-
-      {showExamplePopup && (
-        <div className="modal-backdrop" onClick={() => setShowExamplePopup(false)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <div className="modal-header">
-              <h3>How it works</h3>
-              <button className="modal-close" onClick={() => setShowExamplePopup(false)}>×</button>
-            </div>
-            <div className="modal-body">
-              <p className="modal-desc">
-                Patmoleo uses a fine-tuned DeBERTa model with LoRA to extract named entities (such as People, Locations, Organizations, and Times) from any text you provide.
-              </p>
-              <div className="modal-example-section">
-                <div className="modal-subtitle">Sample Text:</div>
-                <div className="modal-example-text">
-                  "US and Iran agree to a historic peace framework in Geneva. President Trump is scheduled to meet European leaders at the United Nations headquarters in New York next Tuesday to discuss the treaty."
-                </div>
-              </div>
-            </div>
-            <div className="modal-footer">
-              <button className="modal-btn secondary" onClick={() => setShowExamplePopup(false)}>Close</button>
-              <button className="modal-btn primary" onClick={() => {
-                setText("US and Iran agree to a historic peace framework in Geneva. President Trump is scheduled to meet European leaders at the United Nations headquarters in New York next Tuesday to discuss the treaty.");
-                setShowExamplePopup(false);
-              }}>
-                Use this example
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 
