@@ -620,9 +620,6 @@ body {
   .topbar {
     padding: 0 0.5rem;
   }
-  .topbar-logo img {
-    height: 24px;
-  }
   .icon-btn, .text-btn {
     width: 28px;
     height: 28px;
@@ -653,5 +650,12 @@ body {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     z-index: 100;
+  }
+}
+
+/* ═══════ Extremely Small Screens ═══════ */
+@media (max-width: 360px) {
+  .topbar-logo img {
+    height: 24px;
   }
 }
