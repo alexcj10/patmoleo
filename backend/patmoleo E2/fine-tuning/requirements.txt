@@ -1,0 +1,9 @@
+torch
+datasets
+transformers
+peft
+accelerate
+evaluate
+seqeval
+sentencepiece
+protobuf

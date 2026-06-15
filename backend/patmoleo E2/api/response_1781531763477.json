@@ -1,0 +1,44 @@
+[
+  {
+    "word": "Alex",
+    "entity_group": "nat",
+    "score": 1,
+    "start": 0,
+    "end": 4
+  },
+  {
+    "word": "London",
+    "entity_group": "geo",
+    "score": 0.9781323671340942,
+    "start": 12,
+    "end": 19
+  },
+  {
+    "word": "last",
+    "entity_group": "tim",
+    "score": 0.9649642705917358,
+    "start": 19,
+    "end": 24
+  },
+  {
+    "word": "Tuesday",
+    "entity_group": "tim",
+    "score": 0.9945303797721863,
+    "start": 24,
+    "end": 32
+  },
+  {
+    "word": "visit",
+    "entity_group": "per",
+    "score": 0.850924015045166,
+    "start": 35,
+    "end": 41
+  },
+  {
+    "word": "Google",
+    "entity_group": "art",
+    "score": 0.6318831443786621,
+    "start": 41,
+    "end": 48
+  }
+]

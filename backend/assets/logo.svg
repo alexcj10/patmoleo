@@ -1,0 +1,29 @@
+<svg width="100%" max-width="800px" viewBox="0 0 1050 250" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- The user's logo mark, scaled down to 60% and perfectly centered -->
+  <g transform="translate(40, 15) scale(0.6)"
+     fill="none"
+     stroke="#4F46E5"
+     stroke-width="28"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <path d="
+      M120 110
+      C220 40, 320 100, 280 180
+      C250 240, 170 230, 150 180
+      C130 130, 190 100, 230 130
+      C270 160, 250 230, 180 290
+      C140 325, 95 310, 90 270
+    "/>
+  </g>
+
+  <!-- 
+    The title text. 
+    dominant-baseline="central" perfectly aligns the text to Y=125. 
+    A beautiful robust web-safe font stack is used for cross-platform elegance.
+  -->
+  <text x="280" y="125" dominant-baseline="central" font-family="'Helvetica Neue', Helvetica, 'Segoe UI', Roboto, system-ui, sans-serif" font-weight="700" font-size="160px" fill="#4F46E5" letter-spacing="-1px">
+    Patmoleo
+  </text>
+</svg>
