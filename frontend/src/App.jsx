@@ -216,25 +216,23 @@ export default function App() {
           {entities.length > 0 && (
             <div className="summary">
               {Object.entries(groups).map(([code, ents]) => (
-                <div key={code} className="summary-group">
-                  <div className="summary-label">{NAMES[code] || code}</div>
-                  <div className="summary-pills">
+                <div key={code} className="summary-card">
+                  <div className="summary-card-header">
+                    <div className={`legend-dot ${code}`} />
+                    <span>{NAMES[code] || code}</span>
+                  </div>
+                  <div className="summary-card-body">
                     {ents.map((e, j) => (
-                      <span key={j} className={`pill ${code}`}>
-                        {e.word}<span className="pill-score">{(e.score*100).toFixed(0)}%</span>
-                      </span>
+                      <div key={j} className="summary-row">
+                        <span className="summary-row-text" title={e.word}>{e.word}</span>
+                        <span className={`summary-row-score ${code}`}>{(e.score*100).toFixed(0)}%</span>
+                      </div>
                     ))}
                   </div>
                 </div>
               ))}
             </div>
           )}
-
-          <div className="legend">
-            {Object.entries(NAMES).map(([c, n]) => (
-              <div key={c} className="legend-item"><div className={`legend-dot ${c}`}/><span>{n}</span></div>
-            ))}
-          </div>
         </div>
       )}
     </div>

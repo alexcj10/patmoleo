@@ -418,77 +418,89 @@ body {
 .mark.eve   { background: var(--eve-bg); color: var(--eve-text); border-color: var(--eve-border); }
 .mark.nat   { background: var(--nat-bg); color: var(--nat-text); border-color: var(--nat-border); }
 
-/* ═══════ Entity Summary ═══════ */
+/* ═══════ Entity Summary Dashboard ═══════ */
 .summary {
-  margin-top: 1.75rem;
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
 }
 
-.summary-group {
-  margin-bottom: 1rem;
-}
-
-.summary-label {
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--text-tertiary);
-  margin-bottom: 6px;
-  letter-spacing: 0.01em;
-}
-
-.summary-pills {
+.summary-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  flex-direction: column;
 }
 
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-size: 0.84rem;
-  font-weight: 500;
-  border: 1px solid transparent;
-}
-
-.pill-score {
-  font-size: 0.72em;
-  font-weight: 400;
-  opacity: 0.55;
-}
-
-.pill.per { background: var(--per-bg); color: var(--per-text); border-color: var(--per-border); }
-.pill.geo { background: var(--geo-bg); color: var(--geo-text); border-color: var(--geo-border); }
-.pill.org { background: var(--org-bg); color: var(--org-text); border-color: var(--org-border); }
-.pill.tim { background: var(--tim-bg); color: var(--tim-text); border-color: var(--tim-border); }
-.pill.gpe { background: var(--gpe-bg); color: var(--gpe-text); border-color: var(--gpe-border); }
-.pill.art { background: var(--art-bg); color: var(--art-text); border-color: var(--art-border); }
-.pill.eve { background: var(--eve-bg); color: var(--eve-text); border-color: var(--eve-border); }
-.pill.nat { background: var(--nat-bg); color: var(--nat-text); border-color: var(--nat-border); }
-
-/* ═══════ Legend ═══════ */
-.legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 16px;
-  margin-top: 2rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--border-light);
-}
-
-.legend-item {
+.summary-card-header {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 0.72rem;
-  color: var(--text-tertiary);
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.02);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
+
+.summary-card-body {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  transition: background 0.15s ease;
+}
+
+.summary-row:hover {
+  background: var(--bg);
+}
+
+.summary-row-text {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 12px;
+}
+
+.summary-row-score {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.summary-row-score.per { background: var(--per-bg); color: var(--per-text); }
+.summary-row-score.geo { background: var(--geo-bg); color: var(--geo-text); }
+.summary-row-score.org { background: var(--org-bg); color: var(--org-text); }
+.summary-row-score.tim { background: var(--tim-bg); color: var(--tim-text); }
+.summary-row-score.gpe { background: var(--gpe-bg); color: var(--gpe-text); }
+.summary-row-score.art { background: var(--art-bg); color: var(--art-text); }
+.summary-row-score.eve { background: var(--eve-bg); color: var(--eve-text); }
+.summary-row-score.nat { background: var(--nat-bg); color: var(--nat-text); }
 
 .legend-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   flex-shrink: 0;
 }
 
