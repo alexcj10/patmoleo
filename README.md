@@ -4,7 +4,7 @@
 
 **Patmoleo** is a modern, full-stack Named Entity Recognition (NER) application. It leverages a fine-tuned **DeBERTa Transformer** model with **LoRA** (Low-Rank Adaptation) adapters to intelligently extract and classify named entities — such as people, locations, organizations, and more — from unstructured text. It is wrapped in a beautiful, responsive React frontend.
 
-<p>
+<p align="center">
   <img src="https://img.shields.io/badge/Frontend-React_%26_Vite-4F46E5?style=flat&logo=react&logoColor=white" alt="React & Vite" />
   <img src="https://img.shields.io/badge/Backend-FastAPI-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI" />
   <img src="https://img.shields.io/badge/Model-DeBERTa_V3-FF9D00?style=flat&logo=huggingface&logoColor=white" alt="DeBERTa V3" />
