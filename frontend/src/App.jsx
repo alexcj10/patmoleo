@@ -82,12 +82,13 @@ export default function App() {
     setLoading(true)
     setError(null)
     try {
-      const r = await fetch('http://127.0.0.1:8000/predict', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+      const r = await fetch(`${API_URL}/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: input }),
       })
-      if (!r.ok) throw new Error('Cannot reach API — is FastAPI running on port 8000?')
+      if (!r.ok) throw new Error('Cannot reach API — is it running?')
       const d = await r.json()
       setEntities(d || [])
       setAnalyzed(input)

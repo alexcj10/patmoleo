@@ -1,5 +1,6 @@
 fastapi
 uvicorn
-pydantictransformers
+pydantic
+transformers
 peft
 torch
