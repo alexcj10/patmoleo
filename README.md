@@ -19,7 +19,7 @@
 
 <p align="center">
   <b>🌐 Live Demo:</b> <a href="https://patmoleo.vercel.app">patmoleo.vercel.app</a>
-  &nbsp;·&nbsp;
+  <br/>
   <b>⚙️ API Docs:</b> <a href="https://alexcj10-patmoleo.hf.space/docs">alexcj10-patmoleo.hf.space/docs</a>
 </p>
 
