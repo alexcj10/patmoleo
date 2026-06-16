@@ -182,15 +182,17 @@ export default function App() {
             <button className="text-btn" onClick={() => setHistOpen(v => !v)}><Clock/> <span className="btn-text">History</span></button>
             {histOpen && (
               <div className="history-panel">
-                {history.length === 0
-                  ? <div className="history-empty">No saved queries yet</div>
-                  : history.map((h, i) => (
-                    <button key={i} className="history-entry" onClick={() => pick(h)}>
-                      <div>{h.text.length > 70 ? h.text.slice(0, 67) + '…' : h.text}</div>
-                      <div className="history-meta">{h.entities.length} entities</div>
-                    </button>
-                  ))
-                }
+                <div className="history-panel-inner">
+                  {history.length === 0
+                    ? <div className="history-empty">No saved queries yet</div>
+                    : history.map((h, i) => (
+                      <button key={i} className="history-entry" onClick={() => pick(h)}>
+                        <div>{h.text.length > 70 ? h.text.slice(0, 67) + '…' : h.text}</div>
+                        <div className="history-meta">{h.entities.length} entities</div>
+                      </button>
+                    ))
+                  }
+                </div>
               </div>
             )}
           </div>
