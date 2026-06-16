@@ -3,6 +3,10 @@
    Light theme · Soft pastels · Clean spacing
    ═══════════════════════════════════════════ */
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --bg: #0a0a0c;
   --surface: #141416;
@@ -812,8 +816,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     padding: 0;
     border: none;
     background: var(--bg);
@@ -825,8 +829,8 @@ body {
   }
 
   .history-close-btn svg {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
   }
 
   .history-close-btn:hover {
@@ -835,7 +839,13 @@ body {
   }
 
   .history-header {
-    padding: 10px 12px;
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .history-search-input {
+    font-size: 16px; /* prevent iOS zoom */
+    width: 100%;
   }
 
   .history-panel-inner {
