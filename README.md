@@ -24,7 +24,7 @@
 </p>
 
 ---
-<img width="1918" height="862" alt="Screenshot 2026-06-16 152751" src="https://github.com/user-attachments/assets/a028f14f-5593-45b7-bfc5-448c08f1afc8" />
+<img width="1918" height="862" alt="Screenshot 2026-06-16 152922" src="https://github.com/user-attachments/assets/8a4b9dc4-8b52-4254-89bf-d56dfab62eff" />
 
 ---
 
