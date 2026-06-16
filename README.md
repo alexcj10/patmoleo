@@ -10,6 +10,11 @@
   <img src="https://img.shields.io/badge/Model-DeBERTa_V3-FF9D00?style=flat&logo=huggingface&logoColor=white" alt="DeBERTa V3" />
 </p>
 
+<p align="center">
+  <b>🌐 Live Demo:</b> <a href="https://patmoleo.vercel.app">https://patmoleo.vercel.app</a> &nbsp;|&nbsp;
+  <b>⚙️ API Endpoint:</b> <a href="https://alexcj10-patmoleo.hf.space/docs">https://alexcj10-patmoleo.hf.space</a>
+</p>
+
 ---
 
 ## Model Versions
