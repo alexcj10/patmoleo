@@ -149,20 +149,7 @@ Google   →  B-org  (Organization)
 
 ## Architecture
 
-```
-┌─────────────────────────────────┐      ┌──────────────────────────────────────┐
-│        React + Vite             │      │         FastAPI (HF Spaces)          │
-│  ─────────────────────────────  │      │  ──────────────────────────────────  │
-│  • Entity highlight UI          │ ───► │  POST /predict                       │
-│  • History panel + Search       │      │      │                               │
-│  • Mobile-responsive layout     │ ◄─── │      ▼                               │
-└─────────────────────────────────┘      │  HuggingFace Pipeline                │
-         Vercel                          │  (DeBERTa-v3-small + LoRA weights)   │
-                                         │      │                               │
-                                         │      ▼                               │
-                                         │  Structured JSON entities            │
-                                         └──────────────────────────────────────┘
-```
+<img width="1693" height="929" alt="ChatGPT Image Jun 19, 2026, 11_04_32 PM" src="https://github.com/user-attachments/assets/219d4b5b-d64e-4cc6-8b06-2e17e58e36be" />
 
 <!--
   📸 IMAGE PLACEMENT #3 — OPTIONAL: Side-by-side mobile + desktop screenshot
