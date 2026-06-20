@@ -28,22 +28,6 @@
 
 ---
 
-## Table of Contents
-
-- [Features](#features)
-- [Supported Entity Types](#supported-entity-types)
-- [Model Versions](#model-versions)
-- [Model Performance](#model-performance-e2)
-- [LoRA Configuration](#lora-configuration)
-- [Architecture](#architecture)
-- [Quick Start](#quick-start)
-- [Deployment](#deployment)
-- [Tech Stack](#tech-stack)
-- [Background & Roadmap](#background--roadmap)
-- [License](#license)
-
----
-
 ## Features
 
 - **Named Entity Recognition** — identifies 8 entity types (person, location, organization, time, geopolitical, artifact, event, natural phenomenon) using BIO tagging across 17 labels
