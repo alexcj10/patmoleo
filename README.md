@@ -24,7 +24,7 @@
 </p>
 
 ---
-<img width="1918" height="862" alt="Screenshot 2026-06-16 152922" src="https://github.com/user-attachments/assets/8a4b9dc4-8b52-4254-89bf-d56dfab62eff" />
+<img width="1918" height="861" alt="patmoleo" src="https://github.com/user-attachments/assets/61040d4d-48eb-4f53-97bc-0a33412a2e24" />
 
 ---
 
